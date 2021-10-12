@@ -3,3 +3,8 @@ title: "Concept Coral"
 ---
 
 Welcome to the world of concepts ~
+
+On-growing Corals are:
+- [x] Traditional Chinese Medicine(TCM)
+- [ ] Psychology
+- [ ] Bible

@@ -1,0 +1,13 @@
+---
+title: "Herbs & Traditional Chinese Medicines"
+---
+
+- The Herbs & Traditional Chinese Medicines(TCM) have been applied in medical field in oriental countries for thousands of years.
+- Although the theories looks different from modern medicine, the 'effects' of thousands of herbs & established prescriptions have been recorded and further developed.
+- By collecting & cleaning thousands of herbs' tastes, properties, attributes, functions and treats, as well as thousands of established TCM prescriptions' components & treats, I am trying to summarize this 'ancient theory' in a modern way.
+
+```{r echo=FALSE}
+
+```
+
+There are 'r length(unique(hb_nam$Corrected_ChName))` unique herbs collected from all web resources.

@@ -1,8 +1,12 @@
 ---
-title: "About ConceptCoral & Creator"
+title: "About ConceptCoral & Founder"
 ---
 
 I am a biostatistician with 10 years of clinical study experience on drug safety, efficacy, etc.
 
 The idea of 'Concept Coral' is that: the concepts in an research area are correlated and 'grow' and 'interact' with each other.
 It's not a simple hierachical relation between each other.
+
+```{sas sas-ex}
+proc means data=sashelp.class;run;
+```
