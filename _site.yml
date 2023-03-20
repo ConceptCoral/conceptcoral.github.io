@@ -4,12 +4,14 @@ navbar:
   left:
     - text: "Home"
       href: index.html
-    - text: "About"
-      href: about.html
-    - text: "Herbs"
-      href: herbs.html
-    - text: "Psy"
-      href: psy.html
+    - text: "Ancient Chinese Poems"
+      href: acps.html
+    - text: "Traditional Chinese Medicine"
+      href: tcm.html
+    - text: "China History"
+      href: chist.html
+    - text: "Neuroscience"
+      href: neuro.html
 output:
   html_document:
     theme: cosmo
