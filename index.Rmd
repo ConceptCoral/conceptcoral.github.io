@@ -2,13 +2,21 @@
 title: "Concept Coral"
 ---
 
-OK, the idea is: the knowledge and concepts are developed like a coral: they are hierarchically and horizontally connected. Based on what I am familiar with, I am trying to build small corals to show this idea here, and hope in future, they all can be connected and built into an 'earth' level coral (which contains all human knowledge and civilization.)
+### _OK, the idea is: the knowledge and concepts are developed like a coral: they are hierarchically and horizontally connected. Based on what I am familiar with, I am trying to build small corals to show this idea here, and hope in future, they all can be connected and built into an 'earth' level coral (which contains all human knowledge and civilization.)_
+
 
 On-growing Corals are:
+
 - [ ] Statistics
+
 - [ ] Neuroscience
+
 - [ ] Psychology
+
 - [ ] Chinese History
+
 - [ ] Ancient Chinese Poems
+
 - [ ] Traditional Chinese Medicine(TCM)
+
 - [ ] Bible
