@@ -2,7 +2,10 @@
 title: "Ancient Chinese Poems Exploration"
 ---
 
-### **_I collected famous ancient Chinese poems and mark out the (pro)nouns, verbs, adjectives & quantifiers words, then do the exploration, recombination, maybe re-creation..._**
+---
+
+### **_I collected famous ancient Chinese poems and mark out the nouns, pronouns, verbs, adjectives, adverbs & quantifiers words, then do the exploration, recombination, maybe re-creation..._**
+#### **_我收集了中国古诗词，标出其中的名词、代词、动词、形容词、副词和量词，做了高频词图_**
 
 ```{r settings,echo=FALSE,results='hide',fig.keep='all', message=FALSE,warning=FALSE}
 Sys.setlocale("LC_ALL","Chinese") #<--set for showing Chinese 
@@ -21,7 +24,10 @@ rw_ac_poems <- read_sheet("https://docs.google.com/spreadsheets/d/1aKXxr4WZh0FOC
 #head(rw_ac_poems)
 ```
 
-### **_The word cloud of the nouns used in ancient Chinese poems_**
+---
+
+### **_The word cloud of the nouns or pronouns used in ancient Chinese poems_**
+#### **_古诗中的名词、代词的高频词_**
 
 ```{r dataClean,echo=FALSE, message=FALSE,warning=FALSE}
 
@@ -55,6 +61,7 @@ wordcloud(words=Noun_freq$Var1,freq=Noun_freq$Freq,min.freq=1,
 ```
 
 ### **_The word cloud of the verbs used in ancient Chinese poems_**
+#### **_古诗中的动词的高频词_**
 
 ```{r verbPart,echo=FALSE, message=FALSE,warning=FALSE}
 # ----------- verb part -----------
@@ -82,7 +89,8 @@ wordcloud(words=Verb_freq$Var1,freq=Verb_freq$Freq,min.freq=1,
           colors=brewer.pal(8,'Dark2'))
 ```
 
-### **_The word cloud of the adjectives used in ancient Chinese poems_**
+### **_The word cloud of the adjectives, adverbs used in ancient Chinese poems_**
+#### **_古诗中的形容词、副词的高频词_**
 
 ```{r adjPart,echo=FALSE, message=FALSE,warning=FALSE}
 # ------------ adjective part ------------
@@ -112,6 +120,7 @@ wordcloud(words=Adj_freq$Var1,freq=Adj_freq$Freq,min.freq=1,
 ```
 
 ### **_The word cloud of the quantifiers used in ancient Chinese poems_**
+#### **_古诗中的量词的高频词_**
 
 ```{r quantPart,echo=FALSE, message=FALSE,warning=FALSE}
 # ------------ Quantifier part ------------

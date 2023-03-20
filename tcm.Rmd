@@ -2,12 +2,66 @@
 title: "Traditional Chinese Medicines(TCM)"
 ---
 
-- The Traditional/Herbal Chinese Medicines(TCM) have been applied in medical field in oriental countries for thousands of years and still plays important roll in current health care in those regions.
-- Although the theories looks different from modern medicine, there are thousands of herbs used &  prescriptions developed for treatment, and quite amount of them are considered 'effective'.
-- By collecting & cleaning thousands of herbs & prescriptions record, I cleaned them (and will keep collecting them) in a modern data structure and make them ready for modern data analysis.
+### **_The Traditional/Herbal Chinese Medicines(TCM) have been applied in medical field in oriental countries for thousands of years and still plays important roll in current health care in those regions._**
+#### **_中医在东方应用了数千年，对当地人的健康起了重要影响_**
 
-```{r echo=FALSE}
+### **_Although the theories looks different from modern medicine, there are thousands of herbs used &  prescriptions developed for treatment, and quite amount of them are considered 'effective'._**
+#### **_尽管中医理论异于现代医学，其中数千草药、数万药方的治疗功效还是明显的_**
+
+### **_By collecting & cleaning thousands of herbs & prescriptions record, I cleaned them (and will keep collecting them) in a modern data structure and make them ready for modern data analysis._**
+#### **_在收集了大量药方后，我清理了数据，希望能用现代方法进行分析_**
+
+```{r settings,echo=FALSE,results='hide',fig.keep='all', message=FALSE,warning=FALSE}
+Sys.setlocale("LC_ALL","Chinese") #<--set for showing Chinese 
+library(googlesheets4)
+library(dplyr) #<-- for "select" function
+library("wordcloud")
+```
+
+```{r gshets,echo=FALSE, message=FALSE,warning=FALSE}
+
+gs4_deauth() #<--use only for googlesheets shared as 'anyone with the link'
+
+rw_tcm <- read_sheet("https://docs.google.com/spreadsheets/d/1pRLlpF0hInmJ0XkA-qBrx2Koz8wHoGZTbbLz6t2x2Uc/edit?usp=sharing", sheet = "Sheet1")
 
 ```
 
-There are 'r length(unique(hb_nam$Corrected_ChName))` unique herbs collected from all web resources.
+---
+
+### **_There are `r length(unique(rw_tcm$Corrected_ChName))` traditional Chinese medicine prescriptions collected._**
+
+#### **_这里收集了 `r length(unique(rw_tcm$Corrected_ChName))`中药处方。_**
+
+### **_The word cloud of the Cures that precriptions cure are as follow:_**
+
+#### **_药方主治高频词图如下：_**
+
+```{r dataClean,echo=FALSE, message=FALSE,warning=FALSE}
+
+tcm_cl <- rw_tcm
+
+# ---------- noun part ----------
+
+cols_n <- max(stringr::str_count(na.omit(tcm_cl$CleanedCuresString),",|")) + 1
+
+colm_n <- paste("col_n",1:cols_n)
+
+tcm_cl <-
+  tidyr::separate(
+    data = tcm_cl,
+    col = CleanedCuresString,
+    sep = ",|",
+    into = colm_n,
+    remove = FALSE
+  )
+
+Cure_only <- select(tcm_cl,starts_with("col_n"))
+Cures <- data.frame(Cure=na.omit(unlist(Cure_only))) #<--attach columns of values into one column
+Cures$Cure <- factor(Cures$Cure,levels=as.character(names(sort(table(Cures$Cure),decreasing=T)))) 
+
+Cure_freq <- as.data.frame(table(Cures$Cure))
+
+wordcloud(words=Cure_freq$Var1,freq=Cure_freq$Freq,min.freq=1,
+          max.words=100, random.order=FALSE, rot.per=0.35,
+          colors=brewer.pal(8,'Dark2'))
+```

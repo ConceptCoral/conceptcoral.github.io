@@ -10,6 +10,8 @@ navbar:
       href: tcm.html
     - text: "China History"
       href: chist.html
+    - text: "Statistics"
+      href: stats.html
     - text: "Neuroscience"
       href: neuro.html
 output:
