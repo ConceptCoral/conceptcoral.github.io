@@ -42,7 +42,7 @@ tcm_cl <- rw_tcm
 
 # ---------- noun part ----------
 
-cols_n <- max(stringr::str_count(na.omit(tcm_cl$CleanedCuresString),",|")) + 1
+cols_n <- max(stringr::str_count(na.omit(tcm_cl$CleanedCuresString),";")) + 1
 
 colm_n <- paste("col_n",1:cols_n)
 
@@ -50,7 +50,7 @@ tcm_cl <-
   tidyr::separate(
     data = tcm_cl,
     col = CleanedCuresString,
-    sep = ",|",
+    sep = ";",
     into = colm_n,
     remove = FALSE
   )
@@ -60,8 +60,9 @@ Cures <- data.frame(Cure=na.omit(unlist(Cure_only))) #<--attach columns of value
 Cures$Cure <- factor(Cures$Cure,levels=as.character(names(sort(table(Cures$Cure),decreasing=T)))) 
 
 Cure_freq <- as.data.frame(table(Cures$Cure))
+Cure_freq2 <- Cure_freq[Cure_freq$Freq<50000,]
 
-wordcloud(words=Cure_freq$Var1,freq=Cure_freq$Freq,min.freq=1,
+wordcloud(words=Cure_freq2$Var1,freq=Cure_freq$Freq,min.freq=1,
           max.words=100, random.order=FALSE, rot.per=0.35,
           colors=brewer.pal(8,'Dark2'))
 ```
