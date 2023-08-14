@@ -63,6 +63,6 @@ Cure_freq <- as.data.frame(table(Cures$Cure))
 Cure_freq2 <- Cure_freq[Cure_freq$Freq<50000,]
 
 wordcloud(words=Cure_freq2$Var1,freq=Cure_freq$Freq,min.freq=1,
-          max.words=100, random.order=FALSE, rot.per=0.35,
+          max.words=50, random.order=FALSE, rot.per=0.35,
           colors=brewer.pal(8,'Dark2'))
 ```
